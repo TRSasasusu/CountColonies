@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountColonies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop">
+        Title="MainWindow" Height="350" Width="525" Background="DarkGray" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop">
     <Grid>
-        <Image Name="coloniesImage" Stretch="Uniform" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel LastChildFill="False" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <TextBlock Text="コロニー数：" />
+                <TextBlock Name="numberOfColonies" />
+            </StackPanel>
+        </DockPanel>
+
+        <Image Name="coloniesImage" Stretch="Uniform" Grid.Row="1" />
+        <Canvas Name="canvas" Background="Transparent" Grid.Row="1" MouseUp="canvas_MouseUp" />
     </Grid>
 </Window>

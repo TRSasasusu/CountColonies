@@ -23,6 +23,7 @@ namespace CountColonies {
 		public MainWindow() {
 			InitializeComponent();
 			Title = baseTitle_;
+			numberOfColonies.Text = "0";
 		}
 
 		private void Window_DragEnter(object sender, DragEventArgs e) {
@@ -41,6 +42,20 @@ namespace CountColonies {
 			coloniesImage.Source = bitmap;
 
 			Title = System.IO.Path.GetFileName(fileName) + " | " + baseTitle_;
+
+			numberOfColonies.Text = "0";
+		}
+		
+		private void canvas_MouseUp(object sender, MouseButtonEventArgs e) {
+			Ellipse ellipse = new Ellipse();
+			ellipse.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+			ellipse.Height = 2;
+			ellipse.Width = 2;
+			Canvas.SetTop(ellipse, e.GetPosition(this).Y - 17);
+			Canvas.SetLeft(ellipse, e.GetPosition(this).X - 1);
+			canvas.Children.Add(ellipse);
+
+			numberOfColonies.Text = (int.Parse(numberOfColonies.Text) + 1).ToString();
 		}
 	}
 }
