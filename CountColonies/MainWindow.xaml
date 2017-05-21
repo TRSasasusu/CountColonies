@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountColonies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Background="DarkGray" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop">
+        Title="MainWindow" Height="350" Width="525" Background="DarkGray" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop" Icon="/CountColonies;component/Resources/count_colonies.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
