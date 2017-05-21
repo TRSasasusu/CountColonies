@@ -22,7 +22,7 @@ namespace CountColonies {
 
 		public MainWindow() {
 			InitializeComponent();
-			Title = baseTitle_;
+			Title = baseTitle_ + " (コロニーの写真をドラッグアンドドロップしてね)";
 			numberOfColonies.Text = "0";
 		}
 
@@ -43,6 +43,7 @@ namespace CountColonies {
 
 			Title = System.IO.Path.GetFileName(fileName) + " | " + baseTitle_;
 
+			canvas.Children.Clear();
 			numberOfColonies.Text = "0";
 		}
 		
@@ -51,11 +52,20 @@ namespace CountColonies {
 			ellipse.Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
 			ellipse.Height = 2;
 			ellipse.Width = 2;
-			Canvas.SetTop(ellipse, e.GetPosition(this).Y - 17);
+			Canvas.SetTop(ellipse, e.GetPosition(this).Y - 20);
 			Canvas.SetLeft(ellipse, e.GetPosition(this).X - 1);
 			canvas.Children.Add(ellipse);
 
-			numberOfColonies.Text = (int.Parse(numberOfColonies.Text) + 1).ToString();
+			numberOfColonies.Text = canvas.Children.Count.ToString();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e) {
+			if(canvas.Children.Count == 0) {
+				return;
+			}
+
+			canvas.Children.RemoveAt(canvas.Children.Count - 1);
+			numberOfColonies.Text = canvas.Children.Count.ToString();
 		}
 	}
 }

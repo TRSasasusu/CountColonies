@@ -16,6 +16,7 @@
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                 <TextBlock Text="コロニー数：" />
                 <TextBlock Name="numberOfColonies" />
+                <Button Content="戻す" Click="Button_Click" />
             </StackPanel>
         </DockPanel>
 
